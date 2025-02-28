@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:4000/api/todo'
+const API_BASE_URL = 'http://localhost:4000/api/todo';
 
 const useTodo = () => {
   const [todos, setTodos] = useState([]);
@@ -14,7 +14,7 @@ const useTodo = () => {
     setError(null);
     try {
       const response = await axios.get(API_BASE_URL);
-      setTodos(response.data); 
+      setTodos(response.data);  
     } catch (err) {
       setError(err.response?.data?.message || "Failed to load todos!");
     } finally {
@@ -28,9 +28,8 @@ const useTodo = () => {
     setError(null);
     try {
       const response = await axios.post(API_BASE_URL, todo);
-      console.log(response.data);
-      setTodos((prev) => [...prev, response.data]); 
-      return response.data;
+      setTodos((prevTodos) => [...prevTodos, response.data]); 
+      await fetchTodos();
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong!");
     } finally {
@@ -44,9 +43,12 @@ const useTodo = () => {
     setError(null);
     try {
       await axios.patch(`${API_BASE_URL}/${id}/done`);
-      setTodos((prev) =>
-        prev.map((todo) => (todo._id === id ? { ...todo, done: true } : todo))
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, isDone: true } : todo
+        )
       );
+      await fetchTodos();
     } catch (err) {
       setError(err.response?.data?.message || "Could not mark as Done!");
     } finally {
@@ -54,7 +56,6 @@ const useTodo = () => {
     }
   };
 
-  // Auto-fetch todos when the hook is used
   useEffect(() => {
     fetchTodos();
   }, []);
