@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <Container sx={{ my: 4, mx:2 }}>
-      <Grid container spacing={1} alignItems="center" justifyContent="center" >
+      <Grid container spacing={1} alignItems="start" justifyContent="center" >
         <Grid item xs={12} md={5}>
           <TodoForm addTodo={createTodo} />
         </Grid>
