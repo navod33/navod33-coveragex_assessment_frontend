@@ -120,6 +120,7 @@ const TodoForm = () => {
             color="primary"
             onClick={handleSubmit}
             disabled={loading}
+            sx={{width: "100px", borderRadius: "12px", boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)" }}
           >
             {loading ? "Adding..." : "Add"}
           </Button>

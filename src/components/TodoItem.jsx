@@ -26,7 +26,8 @@ const TodoItem = ({ todo }) => {
                 borderRadius: 4, 
                 textTransform: "none", 
                 color: "black", 
-                borderColor: "black"
+                borderColor: "black",
+              
               }}
             >
               Done
