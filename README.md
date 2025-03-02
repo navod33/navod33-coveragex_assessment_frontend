@@ -1,8 +1,34 @@
-# React + Vite
+# MERN Stack FrontEnd 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the FrontEnd for a MERN (MongoDB, Express, React, Node.js) stack application, using PostgreSQL as the database.
 
-Currently, two official plugins are available:
+## Features
+- Express.js for handling API requests
+- PostgreSQL as the relational database
+- Sequelize ORM for database interaction
+- Dotenv for environment variables
+- Cors and helmet for security
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+Ensure you have the following installed:
+- Node.js
+- PostgreSQL
+- npm or yarn
+
+## Installation
+
+1. Clone the repository:
+   git clone https://github.com/navod33/navod33-coveragex_assessment_frontend
+   cd your-repo-name
+
+
+2. Install dependencies:
+
+  $ npm install
+  
+
+3. Start the server:
+
+   $ npm run dev
+   
+
